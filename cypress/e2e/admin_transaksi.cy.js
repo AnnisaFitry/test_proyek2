@@ -27,6 +27,14 @@ describe('Cek Fungsi Transaksi Admin', () => {
         cy.get('input[name="ket"]').type("...")
         cy.get('button[id="submit"]').click()
     });
+    it('Detail Transaksi', () => {
+        cy.visit('http://127.0.0.1:8000')
+        cy.get('input[id="email"]').type("cyntiapd")
+        cy.get('input[id="password"]').type("user123")
+        cy.get('button[type="submit"]').click()
+        cy.visit('http://127.0.0.1:8000/transaksi')
+        cy.visit('http://127.0.0.1:8000/transaksi/9')
+      });
     it('Update status pengembalian Buku', () => {
         cy.visit('http://127.0.0.1:8000')
         cy.get('input[id="email"]').type("cyntiapd")
@@ -35,7 +43,7 @@ describe('Cek Fungsi Transaksi Admin', () => {
         cy.visit('http://127.0.0.1:8000/transaksi')
         cy.get(':nth-child(2) > :nth-child(7) > .btn-group > .dropdown-menu > [enctype="multipart/form-data"] > .dropdown-item').click()
     });
-    it('Delete Trnasaksi', () => {
+    it('Delete Transaksi', () => {
         cy.visit('http://127.0.0.1:8000')
         cy.get('input[id="email"]').type("cyntiapd")
         cy.get('input[id="password"]').type("user123")
