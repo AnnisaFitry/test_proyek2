@@ -13,7 +13,7 @@ describe('Cek Fungsi Transaksi Admin', () => {
         cy.get('button[data-target="#myModal2"]').should('be.visible')
         cy.get('[data-anggota_id="3"]').click({force:true})
         cy.get('input[name="ket"]').type("Kode Buku : 123D")
-        //cy.get('button[id="submit"]').click()
+        cy.get('button[id="submit"]').click()
     });
     it('Tambah Transaksi dengan salah, tanpa cari buku dan anggota', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -33,6 +33,7 @@ describe('Cek Fungsi Transaksi Admin', () => {
         cy.get('input[id="password"]').type("user123")
         cy.get('button[type="submit"]').click()
         cy.visit('http://127.0.0.1:8000/transaksi')
+        cy.get(':nth-child(2) > :nth-child(7) > .btn-group > .dropdown-menu > [enctype="multipart/form-data"] > .dropdown-item').click()
     });
     it('Delete Trnasaksi', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -40,5 +41,6 @@ describe('Cek Fungsi Transaksi Admin', () => {
         cy.get('input[id="password"]').type("user123")
         cy.get('button[type="submit"]').click()
         cy.visit('http://127.0.0.1:8000/transaksi')
+        cy.get(':nth-child(1) > :nth-child(7) > .btn-group > .dropdown-menu > .pull-left > .dropdown-item').click()
     });
 });
