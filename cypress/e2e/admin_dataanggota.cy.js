@@ -13,7 +13,7 @@ describe('Cek Fungsi Data Anggota', () => {
         cy.get('select[name="jk"]').select('L')
         cy.get('select[name="kelas"]').select('10')
         cy.get('select[name="user_id"]').select('5')
-        //cy.get('button[id="submit"]').click()
+        cy.get('button[id="submit"]').click()
     });
     it('Tambah Anggota dengan salah yaitu tidak mengisi satu atau lebih fill', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -26,10 +26,6 @@ describe('Cek Fungsi Data Anggota', () => {
         cy.get('#nisn').type("349890384")
         cy.get('#tempat_lahir').type("Malang")
         cy.get('input[name="tgl_lahir"]').type('2001-02-23')
-        // Contoh tidak diisi:
-        // cy.get('select[name="jk"]').select('L')
-        // cy.get('select[name="kelas"]').select('10')
-        // cy.get('select[name="user_id"]').select('5')
         cy.get('button[id="submit"]').click()
     });
     it('Tambah Anggota dengan salah yaitu mengisi nisn dengan format salah', () => {
@@ -67,16 +63,6 @@ describe('Cek Fungsi Data Anggota', () => {
         cy.get('#nisn').type("9834099308") 
         cy.get('#tempat_lahir').clear()
         cy.get('#tempat_lahir').type("Batu")
-        //cy.get('button[id="submit"]').click()
-    });
-    it('Update Anggota dengan salah yaitu mengosongkan nisn', () => {
-        cy.visit('http://127.0.0.1:8000')
-        cy.get('input[id="email"]').type("adminsmk")
-        cy.get('input[id="password"]').type("admin123")
-        cy.get('button[type="submit"]').click()
-        cy.visit('http://127.0.0.1:8000/anggota')
-        cy.visit('http://127.0.0.1:8000/anggota/3/edit')
-        cy.get('#nisn').clear()
         cy.get('button[id="submit"]').click()
     });
     it('Update Anggota dengan salah yaitu mengosongkan nisn', () => {
@@ -95,5 +81,6 @@ describe('Cek Fungsi Data Anggota', () => {
         cy.get('input[id="password"]').type("admin123")
         cy.get('button[type="submit"]').click()
         cy.visit('http://127.0.0.1:8000/anggota')
+        cy.get(':nth-child(1) > :nth-child(5) > .btn-group > .dropdown-menu > .pull-left > .dropdown-item').click()
     });
 });

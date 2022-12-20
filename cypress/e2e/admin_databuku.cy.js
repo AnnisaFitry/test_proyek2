@@ -19,7 +19,7 @@ describe('Cek Fungsi Data Buku', () => {
         fileName: "file.png",
         lastModified: Date.now(),
       });
-      //cy.get('button[id="submit"]').click()
+      cy.get('button[id="submit"]').click()
     });
     it('Tambah Buku Admin - Mengisi dengan format cover selain gambar', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -41,7 +41,7 @@ describe('Cek Fungsi Data Buku', () => {
           fileName: "file.pdf",
           lastModified: Date.now(),
         });
-        //cy.get('button[id="submit"]').click()
+        cy.get('button[id="submit"]').click()
       });
     it('Tambah Buku Admin - Mengisi tanpa judul', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -120,7 +120,7 @@ describe('Cek Fungsi Data Buku', () => {
         cy.get('#tahun_terbit').type("2000")
         cy.get('#jumlah_buku').type("2")
         cy.get('select[name="lokasi"]').select('rak1')
-        //cy.get('button[id="submit"]').click()
+        cy.get('button[id="submit"]').click()
     });
     it('Detail Buku Admin', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -150,7 +150,7 @@ describe('Cek Fungsi Data Buku', () => {
         cy.get('#jumlah_buku').clear()
         cy.get('#jumlah_buku').type("4")
         cy.get('select[name="lokasi"]').select('rak2')
-        //cy.get('button[id="submit"]').click()
+        cy.get('button[id="submit"]').click()
     });
     it('Update Buku Admin dengan salah - Mengosongkan isbn', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -168,6 +168,6 @@ describe('Cek Fungsi Data Buku', () => {
         cy.get('input[id="password"]').type("admin123")
         cy.get('button[type="submit"]').click()
         cy.visit('http://127.0.0.1:8000/buku')
-        //cy.visit('http://127.0.0.1:8000/buku/62/delete')
+        cy.get(':nth-child(17) > :nth-child(7) > .btn-group > .dropdown-menu > .pull-left > .dropdown-item').click()
     });
 })

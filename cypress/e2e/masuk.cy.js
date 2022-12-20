@@ -32,6 +32,12 @@ describe('Cek Fungsi Login', () => {
     cy.visit('http://127.0.0.1:8000')
     cy.get('button[type="submit"]').click()
   });
+  it('Login Admin - Mengisi username dan password dengan salah', () => {
+    cy.visit('http://127.0.0.1:8000')
+    cy.get('input[id="email"]').type("admin")
+    cy.get('input[id="password"]').type("123456")
+    cy.get('button[type="submit"]').click()
+  });
 
   //Anggota
   it('Login Anggota - Mengisi username dan password dengan benar', () => {
@@ -64,6 +70,12 @@ describe('Cek Fungsi Login', () => {
   });
   it('Login Anggota - Tidak mengisi username dan password', () => {
     cy.visit('http://127.0.0.1:8000')
+    cy.get('button[type="submit"]').click()
+  });
+  it('Login Anggota - Mengisi username dan password dengan salah', () => {
+    cy.visit('http://127.0.0.1:8000')
+    cy.get('input[id="email"]').type("cyntia")
+    cy.get('input[id="password"]').type("123456")
     cy.get('button[type="submit"]').click()
   });
 })

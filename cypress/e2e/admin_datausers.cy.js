@@ -17,7 +17,7 @@ describe('Cek Fungsi Data User', () => {
         cy.get('select[name="level"]').select('user')
         cy.get('#password').type("user123")
         cy.get('#confirm_password').type("user123")
-        //cy.get('#submit').click()
+        cy.get('#submit').click()
     });
     it('Tambah User dengan format profile selain gambar', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -37,7 +37,7 @@ describe('Cek Fungsi Data User', () => {
         cy.get('select[name="level"]').select('user')
         cy.get('#password').type("user123")
         cy.get('#confirm_password').type("user123")
-        //cy.get('#submit').click()
+        cy.get('#submit').click()
     });
     it('Tambah User tanpa username', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -128,7 +128,7 @@ describe('Cek Fungsi Data User', () => {
         cy.get('select[name="level"]').select('admin')
         cy.get('#password').type("user123")
         cy.get('#confirm_password').type("user123")
-        //cy.get('#submit').click()
+        cy.get('#submit').click()
     });
     it('Detail User', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -147,7 +147,7 @@ describe('Cek Fungsi Data User', () => {
         cy.visit('http://127.0.0.1:8000/user/5/edit')
         cy.get('#name').clear()
         cy.get('#name').type("Darma Prakasa Arjuna")
-        //cy.get('#submit').click()
+        cy.get('#submit').click()
     });
     it('Update User pada level saja', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -157,7 +157,7 @@ describe('Cek Fungsi Data User', () => {
         cy.visit('http://127.0.0.1:8000/user')
         cy.visit('http://127.0.0.1:8000/user/4/edit')
         cy.get('select[name="level"]').select('admin')
-        //cy.get('#submit').click()
+        cy.get('#submit').click()
     });
     it('Update User pada password saja', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -168,7 +168,7 @@ describe('Cek Fungsi Data User', () => {
         cy.visit('http://127.0.0.1:8000/user/7/edit')
         cy.get('#password').type("user123")
         cy.get('#confirm_password').type("user123")
-        //cy.get('#submit').click()
+        cy.get('#submit').click()
     });
     it('Hapus User', () => {
         cy.visit('http://127.0.0.1:8000')
@@ -176,6 +176,6 @@ describe('Cek Fungsi Data User', () => {
         cy.get('input[id="password"]').type("admin123")
         cy.get('button[type="submit"]').click()
         cy.visit('http://127.0.0.1:8000/user')
-        //cy.get(':nth-child(5) > :nth-child(5) > .btn-group > .dropdown-menu > .pull-left > .dropdown-item').click({force: true})
+        cy.get(':nth-child(5) > :nth-child(5) > .btn-group > .dropdown-menu > .pull-left > .dropdown-item').click({force: true})
     });
 });
